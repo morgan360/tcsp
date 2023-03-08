@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from orders.models import Order
-from lessons.models import Product, Term
+from lessons.models import PublicClasses, Term
 from swimmer.models import Swimling
 
 
@@ -13,7 +13,7 @@ class Booking(models.Model):
                              blank=True, null=True, )
     swimling = models.ForeignKey(Swimling, on_delete=models.CASCADE,blank=True, null=True,)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product,
+    product = models.ForeignKey(PublicClasses,
                                 related_name='products',
                                 on_delete=models.CASCADE)
     term = models.ForeignKey(Term, on_delete=models.CASCADE)

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from import_export.admin import ImportExportModelAdmin
 # Register your models here.
-from .models import Category, Product, Lesson, Day, Term, Module
+from .models import Category, PublicClasses, Lesson, Day, Term, Module
 from .forms import ProductForm
 from .resources import DayResource, LessonResource, ProductResource
 
@@ -42,7 +42,7 @@ class ModuleAdmin(ImportExportModelAdmin):
     list_display = ('name',)
 
 
-admin.site.register(Product, ProductAdmin)
+admin.site.register(PublicClasses, ProductAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Day, DayAdmin)
 admin.site.register(Term, TermAdmin)

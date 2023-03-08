@@ -1,5 +1,5 @@
 from django.db import models
-from lessons.models import Product
+from lessons.models import PublicClasses
 
 
 class Order(models.Model):
@@ -30,7 +30,7 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order,
                               related_name='items',
                               on_delete=models.CASCADE)
-    product = models.ForeignKey(Product,
+    product = models.ForeignKey(PublicClasses,
                                 related_name='order_items',
                                 on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10,

@@ -1,5 +1,5 @@
 from import_export import resources, fields
-from .models import Day, Lesson, Module, Product
+from .models import Day, Lesson, Module, PublicClasses
 from import_export.widgets import ForeignKeyWidget, ManyToManyWidget, TimeWidget, DecimalWidget
 from django.contrib.auth.models import Group
 
@@ -36,5 +36,5 @@ class ProductResource(resources.ModelResource):
     #     widget=widgets.DecimalWidget()
     # )
     class Meta:
-        model = Product
+        model = PublicClasses
         fields = ('id', 'day', 'lesson', 'num_places', 'num_weeks', 'start_time', 'end_time', 'price', 'availibility',)

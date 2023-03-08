@@ -78,7 +78,7 @@ class Category(models.Model):
                        args=[self.slug])
 
 
-class Product(models.Model):
+class PublicClasses(models.Model):
     category = models.ForeignKey(Category,
                                  related_name='products',
                                  on_delete=models.CASCADE,
@@ -116,7 +116,7 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name_plural = "Products"
+        verbose_name_plural = "Public Classes"
         ordering = ['name']
         indexes = [
             models.Index(fields=['id', 'slug']),
