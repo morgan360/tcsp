@@ -1,0 +1,15 @@
+{% extends "lessons/child_base.html" %}
+
+{% block title %}
+  Thank you
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Thank you</h1>
+    <div class="alert alert-success" role="alert">
+      Your order has been successfully completed. Your order number is <strong>{{ order.id }}</strong>.
+    </div>
+  </div>
+{% endblock %}
+

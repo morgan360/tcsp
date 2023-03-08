@@ -1,0 +1,42 @@
+{% extends "lessons/child_base.html" %}
+{% load static %}
+
+{% block title %}
+  {{ product.name }}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" class="img-fluid">
+      </div>
+      <div class="col-md-8">
+        <h1>{{ product.name }}</h1>
+        <h2>
+          <a href="{{ product.category.get_absolute_url }}">
+            {{ product.category }}
+          </a>
+        </h2>
+        <p class="lead">€{{ product.price }}</p>
+        <form action="{% url "cart:cart_add" product.id %}" method="post">
+          {% csrf_token %}
+          {{ cart_product_form.as_p }}
+          <button type="submit" class="btn btn-primary">Add to Cart</button>
+        </form>
+        <hr>
+        <p>{{ product.description|linebreaks }}</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="text-center">Copyright © Morgan
+    </div>
+  </div>
+</div>
+{% endblock %}
