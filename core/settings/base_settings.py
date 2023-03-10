@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'cart',
     'orders',
     'bookings',
+    'public_swims',
 
 ]
 
